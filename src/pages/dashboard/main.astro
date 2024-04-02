@@ -1,12 +1,18 @@
 ---
 import Layout from '../../layouts/Dashboard/Layout.astro';
+
+const isLogin = Astro.cookies.get("isLogin");
+
+if(!isLogin==true){
+  return Astro.redirect('/');
+}
 ---
 
-<Layout title="Selamat datang di Dahsboard">
+<Layout title="Selamat datang di Dahsboard" menuActive="dashboard">
 <div class="main-content">
     <section class="section">
       <div class="section-header">
-        <h1>Blank Page</h1>
+        <h1>Dashboard</h1>
       </div>
 
       <div class="section-body">
