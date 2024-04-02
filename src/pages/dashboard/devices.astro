@@ -1,5 +1,11 @@
 ---
 import Layout from '../../layouts/Dashboard/Layout.astro';
+
+const isLogin = Astro.cookies.get("isLogin");
+
+if(!isLogin==true){
+  return Astro.redirect('/');
+}
 ---
 <Layout title="Devices" menuActive="devices">
     <div class="main-content">
