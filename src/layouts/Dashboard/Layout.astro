@@ -4,7 +4,35 @@ interface Props {
     menuActive: string;
 }
 
+let isForbidden = false;
 const { title, menuActive } = Astro.props;
+
+import { supabase } from "../../lib/supabase";
+
+const { cookies} = Astro;
+const accessToken = cookies.get("sb-access-token");
+const refreshToken = cookies.get("sb-refresh-token");
+
+if (!accessToken || !refreshToken) {
+  // return Astro.redirect("/");
+  isForbidden= true;
+}
+
+const { data, error } = await supabase.auth.setSession({
+  refresh_token: refreshToken?.value,
+  access_token: accessToken?.value,
+});
+
+if (error) {
+  cookies.delete("sb-access-token", {
+    path: "/",
+  });
+  cookies.delete("sb-refresh-token", {
+    path: "/",
+  });
+  isForbidden=true;
+  // return Astro.redirect("/");
+}
 ---
 
 <!DOCTYPE html>
@@ -116,7 +144,7 @@ const { title, menuActive } = Astro.props;
                 <i class="fas fa-cog"></i> Settings
               </a> -->
               <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item has-icon text-danger">
+              <a href="/api/auth/signout" class="dropdown-item has-icon text-danger">
                 <i class="fas fa-sign-out-alt"></i> Logout
               </a>
             </div>
@@ -168,6 +196,10 @@ const { title, menuActive } = Astro.props;
   <script is:inline src="/assets/js/scripts.js"></script>
   <script is:inline src="/assets/js/custom.js"></script>
 
+  {
+    isForbidden ?
+    <script>window.location.href = "/";</script> : <script></script>
+  }
   <!-- Page Specific JS File -->
 </body>
 </html>

@@ -1,11 +1,6 @@
 ---
 import Layout from '../../layouts/Dashboard/Layout.astro';
 
-const isLogin = Astro.cookies.get("isLogin");
-
-if(!isLogin==true){
-  return Astro.redirect('/');
-}
 ---
 <Layout title="Sessions" menuActive="sessions">
     <div class="main-content">

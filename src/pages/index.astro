@@ -1,26 +1,11 @@
 ---
-let issuccess = null;
-if (Astro.request.method === "POST") {
-  try {
-    const data = await Astro.request.formData();
-    const email = data.get("email");
-    const password = data.get("password");
-	
-	if(email=='fduga2@gmail.com' && password=='admin'){
-		issuccess = true; 
-    Astro.cookies.set('isLogin', true);
-    return Astro.redirect('/dashboard/main');
-	}else{
-		console.log('gagal')
-		// swal("Something went wrong!", "error");
-    issuccess = false;
-	}
+const { cookies, redirect } = Astro;
 
-  } catch (error) {
-    if (error instanceof Error) {
-      console.error(error.message);
-    }
-  }
+const accessToken = cookies.get("sb-access-token");
+const refreshToken = cookies.get("sb-refresh-token");
+
+if (accessToken && refreshToken) {
+  return redirect("/dashboard/main");
 }
 ---
 
@@ -57,7 +42,7 @@ if (Astro.request.method === "POST") {
               <div class="card-header"><h4>Login</h4></div>
 
               <div class="card-body">
-                <form method="POST" class="needs-validation" novalidate="">
+                <form method="POST" class="needs-validation" novalidate="" action="/api/auth/signin">
                   <div class="form-group">
                     <label for="email">Email</label>
                     <input id="email" type="email" class="form-control" name="email" tabindex="1" required autofocus>
@@ -100,7 +85,7 @@ if (Astro.request.method === "POST") {
               Don't have an account? <a href="auth-register.html">Create One</a>
             </div> -->
             <div class="simple-footer">
-              Copyright &copy; 2024 {issuccess}
+              Copyright &copy; 2024
             </div>
           </div>
         </div>
@@ -115,23 +100,8 @@ if (Astro.request.method === "POST") {
   <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
   <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script is:inline src="/assets/js/stisla.js"></script>
-  <script is:inline src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <!-- <script is:inline src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
 
-  {
-    !issuccess && issuccess != null ? 
-    <script is:inline>
-      $(document).ready(function () {
-        swal({
-          text: "Login Gagal",
-          icon: "error",
-        });
-
-        // redirecting
-
-
-      });
-  </script> : ''
-  }
   <!-- JS Libraies -->
 
   <!-- Template JS File -->
