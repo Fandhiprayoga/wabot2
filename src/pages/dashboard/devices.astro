@@ -8,7 +8,55 @@ import Layout from '../../layouts/Dashboard/Layout.astro';
           <div class="section-header">
             <h1>Devices</h1>
           </div>
-    
+          
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header">
+                  <a href="#" class="btn btn-success"><i class="fas fa-plus"></i> Add device</a>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-striped" id="table-1">
+                      <thead>
+                        <tr>
+                          <th class="text-center">
+                            #
+                          </th>
+                          <th>WA Number</th>
+                          <th>Client</th>
+                          <th>Status</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            1
+                          </td>
+                          <td>6282227100068</td>
+                          <td>Client 1</td>
+                          <td><div class="badge badge-success">Online</div></td>
+                          <td><a href="#" class="btn btn-danger">Delete</a></td>
+                        </tr>
+                        <tr>
+                          <td>
+                            2
+                          </td>
+                          <td>6282227100062</td>
+                          <td>Client 2</td>
+                          <td><div class="badge badge-danger">Ofline</div></td>
+                          <td><a href="#" class="btn btn-danger">Delete</a></td>
+                        </tr>
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div class="section-body">
           </div>
         </section>

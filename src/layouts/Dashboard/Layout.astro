@@ -45,8 +45,7 @@ if (error) {
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- CSS Libraries -->
 
   <!-- Template CSS -->
@@ -62,70 +61,9 @@ if (error) {
         <form class="form-inline mr-auto">
           <ul class="navbar-nav mr-3">
             <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
-            <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a></li>
+            <!-- <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a></li> -->
           </ul>
-          <div class="search-element">
-            <input class="form-control" type="search" placeholder="Search" aria-label="Search" data-width="250">
-            <button class="btn" type="submit"><i class="fas fa-search"></i></button>
-            <div class="search-backdrop"></div>
-            <div class="search-result">
-              <div class="search-header">
-                Histories
-              </div>
-              <div class="search-item">
-                <a href="#">How to hack NASA using CSS</a>
-                <a href="#" class="search-close"><i class="fas fa-times"></i></a>
-              </div>
-              <div class="search-item">
-                <a href="#">Kodinger.com</a>
-                <a href="#" class="search-close"><i class="fas fa-times"></i></a>
-              </div>
-              <div class="search-item">
-                <a href="#">#Stisla</a>
-                <a href="#" class="search-close"><i class="fas fa-times"></i></a>
-              </div>
-              <div class="search-header">
-                Result
-              </div>
-              <div class="search-item">
-                <a href="#">
-                  <img class="mr-3 rounded" width="30" src="../assets/img/products/product-3-50.png" alt="product">
-                  oPhone S9 Limited Edition
-                </a>
-              </div>
-              <div class="search-item">
-                <a href="#">
-                  <img class="mr-3 rounded" width="30" src="../assets/img/products/product-2-50.png" alt="product">
-                  Drone X2 New Gen-7
-                </a>
-              </div>
-              <div class="search-item">
-                <a href="#">
-                  <img class="mr-3 rounded" width="30" src="../assets/img/products/product-1-50.png" alt="product">
-                  Headphone Blitz
-                </a>
-              </div>
-              <div class="search-header">
-                Projects
-              </div>
-              <div class="search-item">
-                <a href="#">
-                  <div class="search-icon bg-danger text-white mr-3">
-                    <i class="fas fa-code"></i>
-                  </div>
-                  Stisla Admin Template
-                </a>
-              </div>
-              <div class="search-item">
-                <a href="#">
-                  <div class="search-icon bg-primary text-white mr-3">
-                    <i class="fas fa-laptop"></i>
-                  </div>
-                  Create a new Homepage Design
-                </a>
-              </div>
-            </div>
-          </div>
+
         </form>
         <ul class="navbar-nav navbar-right">
 
@@ -154,7 +92,7 @@ if (error) {
       <div class="main-sidebar sidebar-style-2">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="index.html">Whastapp - bot</a>
+            <a href="index.html"><i class="fab fa-whatsapp"></i> Whastapp - bot</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
             <a href="index.html">WB</a>
@@ -162,7 +100,7 @@ if (error) {
           <ul class="sidebar-menu">
               <li class="menu-header">Menu utama</li>
               <li class={menuActive=='dashboard'?'active':''}><a class="nav-link" href="/dashboard/main"><i class="fas fa-fire"></i> <span>Dashboard</span></a></li>
-              <li class={menuActive=='devices'?'active':''}><a class="nav-link" href="/dashboard/devices"><i class="fas fa-phone"></i> <span>Devices</span></a></li>
+              <li class={menuActive=='devices'?'active':''}><a class="nav-link" href="/dashboard/devices"><i class="fab fa-whatsapp"></i> <span>Devices</span></a></li>
               <li class={menuActive=='sessions'?'active':''}><a class="nav-link" href="/dashboard/sessions"><i class="fas fa-clock"></i> <span>Sessions</span></a></li>
             </ul>
         </aside>
@@ -196,9 +134,12 @@ if (error) {
   <script is:inline src="/assets/js/scripts.js"></script>
   <script is:inline src="/assets/js/custom.js"></script>
 
+  <!-- include summernote css/js -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<script is:inline src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
   {
     isForbidden ?
-    <script>window.location.href = "/";</script> : <script></script>
+    <script>window.location.href = "/api/auth/signout";</script> : <script></script>
   }
   <!-- Page Specific JS File -->
 </body>

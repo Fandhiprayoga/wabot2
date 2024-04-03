@@ -10,6 +10,64 @@ import Layout from '../../layouts/Dashboard/Layout.astro';
         <h1>Dashboard</h1>
       </div>
 
+      <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+          <div class="card card-statistic-1">
+            <div class="card-icon bg-primary">
+              <i class="fab fa-whatsapp"></i>
+            </div>
+            <div class="card-wrap">
+              <div class="card-header">
+                <h4>Devices</h4>
+              </div>
+              <div class="card-body">
+                10
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+          <div class="card card-statistic-1">
+            <div class="card-icon bg-success">
+              <i class="fas fa-circle"></i>
+            </div>
+            <div class="card-wrap">
+              <div class="card-header">
+                <h4>Active Session</h4>
+              </div>
+              <div class="card-body">
+                47
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6 col-md-12 col-12 col-sm-12">
+          <form method="post" class="needs-validation" novalidate="">
+            <div class="card">
+              <div class="card-header">
+                <h4>Quick Setting</h4>
+              </div>
+              <div class="card-body pb-0">
+                <div class="form-group">
+                  <label>Message Start Session</label>
+                  <textarea class="summernote-simple"></textarea>
+                </div>
+                <div class="form-group">
+                  <label>Message End Session</label>
+                  <textarea class="summernote-simple"></textarea>
+                </div>
+              </div>
+              <div class="card-footer pt-0">
+                <button class="btn btn-primary">Save Setting</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
       <div class="section-body">
       </div>
     </section>
