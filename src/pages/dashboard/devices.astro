@@ -13,7 +13,7 @@ import Layout from '../../layouts/Dashboard/Layout.astro';
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <a href="#" class="btn btn-success"><i class="fas fa-plus"></i> Add device</a>
+                  <a href="#" class="btn btn-success" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus"></i> Add device</a>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
@@ -61,4 +61,47 @@ import Layout from '../../layouts/Dashboard/Layout.astro';
           </div>
         </section>
       </div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <form class="modal-content" method="POST" action="#">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Device</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="nomor">Nomor Whatsap aktif</label>
+          <input type="number" class="form-control" name="nomor" aria-describedby="nomorHelp" placeholder="Inputkan nomor wa aktif">
+          <small id="nomorHelp" class="form-text text-muted">Nomor Whatsap aktif</small>
+        </div>
+        <div class="form-group">
+          <label for="deskripsi">Deskripsi</label>
+          <textarea class="form-control" name="deskripsi" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="client">Client wa</label>
+          <select class="form-control" name="client">
+            <option disabled selected >Pilih client wa</option>
+            <option value="client1">Client 1</option>
+            <option value="client2">Client 2</option>
+            <option value="client3">Client 3</option>
+          </select>
+          <small id="nomorHelp" class="form-text text-muted">Client sebagai agen bot</small>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Simpan</button>
+      </div>
+    </form>
+  </div>
+</div>
+
 </Layout>
